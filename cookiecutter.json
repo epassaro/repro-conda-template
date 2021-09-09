@@ -1,0 +1,20 @@
+{
+    "project_name": "my_project",
+    "short_description": "",
+    "environment_name": "{{cookiecutter.project_name|lower()|replace(' ', '_')}}",
+    "default_channel": "conda-forge",
+    "extra_channels": "",
+    "python_version": "latest",
+    "numpy_version": "latest",
+    "scipy_version": "latest",
+    "astropy_version": "latest",
+    "pandas_version": "latest",
+    "matplotlib_version": "latest",
+    "notebook_version": "latest",
+    "conda_packages": "",
+    "pip_packages": "",
+    "freeze_environment": "y",
+    "install_nb_kernel": "y",
+    "use_mamba": "y",
+    "use_scm": "y"
+}

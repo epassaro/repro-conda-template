@@ -1,0 +1,30 @@
+name: {{cookiecutter.environment_name}}
+
+channels:
+  - {{cookiecutter.default_channel}}
+  {%- if cookiecutter.extra_channels != '' %}
+  {%- for channel in cookiecutter.extra_channels.replace(' ', '').split(',') %}
+  - {{channel}}
+  {%- endfor %}
+  {%- endif %}
+
+dependencies:
+  - python{% if cookiecutter.python_version != 'latest' %}={{cookiecutter.python_version}}{% endif %}
+  - pip
+  - numpy{% if cookiecutter.numpy_version != 'latest' %}={{cookiecutter.numpy_version}}{% endif %}
+  - scipy{% if cookiecutter.scipy_version != 'latest' %}={{cookiecutter.scipy_version}}{% endif %}
+  - astropy{% if cookiecutter.astropy_version != 'latest' %}={{cookiecutter.astropy_version}}{% endif %}
+  - pandas{% if cookiecutter.pandas_version != 'latest' %}={{cookiecutter.pandas_version}}{% endif %}
+  - matplotlib-base{% if cookiecutter.matplotlib_version != 'latest' %}={{cookiecutter.matplotlib_version}}{% endif %}
+  - notebook{% if cookiecutter.notebook_version != 'latest' %}={{cookiecutter.notebook_version}}{% endif %}
+  {%- if cookiecutter.conda_packages != '' %}
+  {%- for package in cookiecutter.conda_packages.replace(' ', '').split(',') %}
+  - {{package}}
+  {%- endfor %}
+  {%- endif %}
+  {%- if cookiecutter.pip_packages != '' %}
+  - pip:
+  {%- for package in cookiecutter.pip_packages.replace(' ', '').split(',') %}
+    - {{package}}
+  {%- endfor %}
+  {%- endif %}
